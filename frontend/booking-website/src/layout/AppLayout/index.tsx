@@ -1,3 +1,4 @@
+import Footer from "@/core/components/Footer"
 import LocationModal from "@/core/components/LocationModal"
 import Navbar from "@/core/components/Navbar"
 import UserDrawer from "@/core/components/UserDrawer"
@@ -16,6 +17,7 @@ export default function AppLayout({}: Props) {
         onDrawerOpen={setIsDrawerOpen}
       />
       <Outlet />
+      <Footer />
       <LocationModal onOpenChange={setIsLocationOpen} open={isLocationOpen} />
       <UserDrawer onOpenChange={setIsDrawerOpen} open={isDrawerOpen} />
     </>

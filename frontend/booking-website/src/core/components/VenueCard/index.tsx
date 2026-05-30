@@ -1,27 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 
-type Props = {}
+type Props = {
+  data: any
+}
 
-export default function VenueCard({}: Props) {
+export default function VenueCard({ data }: Props) {
   return (
     <div className="cursor-pointer">
       <Card className="m-0 p-0">
         <CardContent className="relative m-0 h-89.75 w-full p-0">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/b/bb/RU_Auditorium_Building.jpg"
-            alt=""
+            src={data?.image}
+            alt={data?.name}
             className="h-full w-full object-cover"
           />
-          <div className="absolute right-0 bottom-0 left-0 flex items-center gap-2 bg-black text-white p-2">
-            <Star className="fill-primary stroke-primary size-5" />
-            <p>8.3/10</p>
+          <div className="absolute right-0 bottom-0 left-0 flex items-center gap-2 bg-black p-2 text-white">
+            <Star className="size-5 fill-primary stroke-primary" />
+            <p>{data?.rating}/10</p>
           </div>
         </CardContent>
       </Card>
       <div className="mt-1">
-        <p className="text-lg font-semibold">Kakkand, Kochi</p>
-        <span className="text-sm text-gray-400">Wedding</span>
+        <p className="text-lg font-semibold">{data?.name}</p>
+        <span className="text-sm text-gray-400">{data?.category}</span>
       </div>
     </div>
   )
