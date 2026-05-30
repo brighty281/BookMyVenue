@@ -12,7 +12,7 @@ export default function Navbar({}: Props) {
   const [isSignIn, setIsSignIn] = useState<boolean>(false)
   return (
     <>
-      <nav className="mx-auto flex items-center justify-between md:max-w-6xl lg:max-w-7xl">
+      <nav className="mx-auto flex items-center justify-between py-2 md:max-w-6xl lg:max-w-7xl">
         <div className="flex items-center gap-4">
           <Link to={"/"} className="h-14 w-28.5">
             <img
