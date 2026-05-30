@@ -9,10 +9,12 @@ import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Field,
+  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field"
+import useCountdown from "@/core/hooks/useCountdown"
 
 type Props = {}
 
@@ -36,6 +38,8 @@ export default function OtpForm({}: Props) {
     mode: "onChange",
   })
 
+  const { timeLeft, isFinished } = useCountdown()
+
   const {
     formState: { isValid, isSubmitting },
   } = form
@@ -53,11 +57,15 @@ export default function OtpForm({}: Props) {
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid}>
               <FieldLabel htmlFor="form-rhf-demo-title">OTP</FieldLabel>
-              <InputOTP {...field} maxLength={OTP_LENGTH} defaultValue="">
+              <FieldDescription>
+                Enter OTP sent to{" "}
+                <span className="font-bold">prasannaunni@gmail.com</span>
+              </FieldDescription>
+              <InputOTP {...field} maxLength={OTP_LENGTH}>
                 <InputOTPGroup className="flex items-center gap-3 rounded-none">
                   {Array.from({ length: OTP_LENGTH }).map((_, index) => (
                     <InputOTPSlot
-                      className="rounded-sm border-2 border-primary p-5"
+                      className="rounded-sm border-2 border-black p-5"
                       index={index}
                     />
                   ))}
@@ -68,13 +76,25 @@ export default function OtpForm({}: Props) {
           )}
         />
       </FieldGroup>
-      <Button
-        type="submit"
-        disabled={!isValid || isSubmitting}
-        className="mt-10 w-full"
-      >
-        Continue
-      </Button>
+      <div className="mt-10">
+        {isFinished ? (
+          <p className="text-center text-sm">
+            Didn't receive OTP ?{" "}
+            <span className="font-bold text-primary">Resend OTP</span>
+          </p>
+        ) : (
+          <p className="text-center text-sm">
+            Expect OTP in <span className="font-bold">{timeLeft}</span> seconds
+          </p>
+        )}
+        <Button
+          type="submit"
+          disabled={!isValid || isSubmitting}
+          className="mt-1 w-full"
+        >
+          Continue
+        </Button>
+      </div>
     </form>
   )
 }

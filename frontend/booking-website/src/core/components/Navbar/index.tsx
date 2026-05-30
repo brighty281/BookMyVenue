@@ -6,9 +6,12 @@ import SearchInput from "../SearchInput"
 import { useState } from "react"
 import SignInModal from "@/auth/components/SignInModal"
 
-type Props = {}
+type Props = {
+  onLocationOpen: (open: boolean) => void
+  onDrawerOpen: (open: boolean) => void
+}
 
-export default function Navbar({}: Props) {
+export default function Navbar({ onLocationOpen, onDrawerOpen }: Props) {
   const [isSignIn, setIsSignIn] = useState<boolean>(false)
   return (
     <>
@@ -31,6 +34,7 @@ export default function Navbar({}: Props) {
             className="flex cursor-pointer items-center gap-2 bg-transparent hover:bg-transparent"
             variant={"ghost"}
             size={"sm"}
+            onClick={() => onLocationOpen(true)}
           >
             Kochi
             <ChevronDown />
@@ -46,6 +50,7 @@ export default function Navbar({}: Props) {
             className="cursor-pointer bg-transparent hover:bg-transparent"
             variant={"ghost"}
             size={"icon-lg"}
+            onClick={() => onDrawerOpen(true)}
           >
             <Menu className="size-5" />
           </Button>

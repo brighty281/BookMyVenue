@@ -11,7 +11,6 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 
-// ─── 1. Schema ───────────────────────────────────────────────────────────────
 const emailFormSchema = z.object({
   email: z
     .string()
@@ -21,9 +20,11 @@ const emailFormSchema = z.object({
 
 type EmailFormValues = z.infer<typeof emailFormSchema>
 
-type Props = {}
+type Props = {
+  onSuccess: () => void
+}
 
-export default function EmailForm({}: Props) {
+export default function EmailForm({onSuccess}: Props) {
   const form = useForm<EmailFormValues>({
     resolver: zodResolver(emailFormSchema),
     defaultValues: {
@@ -38,7 +39,7 @@ export default function EmailForm({}: Props) {
 
   function onSubmit(values: EmailFormValues) {
     console.log(values) // { email: "user@example.com" }
-    // call your API here
+   onSuccess()
   }
   return (
     <div className="w-full">

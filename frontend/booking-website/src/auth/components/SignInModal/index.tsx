@@ -26,7 +26,7 @@ const MODAL_TITLES: Record<TScreen, string> = {
 }
 
 export default function SignInModal({ onOpenChange, open }: Props) {
-  const [screen, setScreen] = useState<TScreen>("otp")
+  const [screen, setScreen] = useState<TScreen>("home")
 
   const handleScreen = (type: TScreen) => {
     setScreen(type)
@@ -49,7 +49,7 @@ export default function SignInModal({ onOpenChange, open }: Props) {
             {MODAL_TITLES[screen]}
           </DialogTitle>
         </DialogHeader>
-        <div className="mx-auto my-10 w-full max-w-[80%] min-h-72 space-y-4">
+        <div className="mx-auto my-10 min-h-72 w-full max-w-[80%] space-y-4">
           {screen === "home" && (
             <>
               <Button
@@ -86,7 +86,9 @@ export default function SignInModal({ onOpenChange, open }: Props) {
               </Button>
             </>
           )}
-          {screen === "email" && <EmailForm />}
+          {screen === "email" && (
+            <EmailForm onSuccess={() => handleScreen("otp")} />
+          )}
           {screen === "otp" && <OtpForm />}
         </div>
       </DialogContent>
