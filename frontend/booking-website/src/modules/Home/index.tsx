@@ -2,6 +2,7 @@ import VenueCard from "@/core/components/VenueCard"
 import Banner from "./components/Banner"
 import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
+import { useMemo } from "react"
 
 type Props = {}
 
@@ -79,24 +80,25 @@ export const venues = [
 ]
 
 export default function Home({}: Props) {
+  const data = useMemo(() => venues, [])
   return (
     <>
       <Banner />
-      <div className="mx-auto my-12 md:max-w-6xl lg:max-w-7xl">
+      <div className="mx-auto py-12 md:max-w-6xl lg:max-w-7xl">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Recommended Venues</h2>
           <Button
             variant={"link"}
-            className="m-0 flex items-center gap-1 p-0 no-underline hover:no-underline cursor-pointer"
+            className="m-0 flex cursor-pointer items-center gap-1 p-0 no-underline hover:no-underline"
           >
             See All <ChevronRight className="size-3" />
           </Button>
         </div>
 
         <div className="mt-2 grid grid-cols-5 gap-8">
-          {/* {venues?.map((venu) => (
+          {data?.map((venu) => (
             <VenueCard data={venu} />
-          ))} */}
+          ))}
         </div>
       </div>
     </>

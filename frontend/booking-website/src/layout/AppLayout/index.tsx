@@ -16,7 +16,9 @@ export default function AppLayout({}: Props) {
         onLocationOpen={setIsLocationOpen}
         onDrawerOpen={setIsDrawerOpen}
       />
-      <Outlet />
+      <div className="bg-[#f2f5f9]">
+        <Outlet />
+      </div>
       <Footer />
       <LocationModal onOpenChange={setIsLocationOpen} open={isLocationOpen} />
       <UserDrawer onOpenChange={setIsDrawerOpen} open={isDrawerOpen} />
