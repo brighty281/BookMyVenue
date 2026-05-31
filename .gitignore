@@ -1,0 +1,26 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+application-*.yml
+application-*.properties
+
+# Build files
+bookmyvenuebackend/mvnw
+bookmyvenuebackend/mvnw.cmd
