@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from "react-router"
 type Props = {}
 
 const Home = lazy(() => import("@/modules/Home"))
+const VenueDetails = lazy(() => import("@/modules/VenueDetails"))
 
 export default function AppRouting({}: Props) {
   return (
@@ -13,6 +14,7 @@ export default function AppRouting({}: Props) {
       <Route element={<AppLayout />}>
         <Route path="/" element={<Navigate to={appRoutes.home} replace />} />
         <Route path={appRoutes.home} element={<Home />} />
+        <Route path={appRoutes.venueDetails} element={<VenueDetails />} />
       </Route>
     </Routes>
   )
