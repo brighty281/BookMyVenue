@@ -7,6 +7,7 @@ type Props = {}
 
 const Home = lazy(() => import("@/modules/Home"))
 const VenueDetails = lazy(() => import("@/modules/VenueDetails"))
+const VenueList = lazy(() => import("@/modules/VenueList"))
 
 export default function AppRouting({}: Props) {
   return (
@@ -15,6 +16,7 @@ export default function AppRouting({}: Props) {
         <Route path="/" element={<Navigate to={appRoutes.home} replace />} />
         <Route path={appRoutes.home} element={<Home />} />
         <Route path={appRoutes.venueDetails} element={<VenueDetails />} />
+        <Route path={appRoutes.venueList} element={<VenueList />} />
       </Route>
     </Routes>
   )

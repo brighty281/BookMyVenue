@@ -22,21 +22,30 @@ export default function Banner({}: Props) {
           />
         </Card>
         <div className="flex-1 space-y-6 text-white">
-          <h1 className="text-3xl font-bold capitalize">Kakkanad, Kochi</h1>
+          <h1 className="text-3xl font-bold capitalize">
+            Grand Harmony Convention Centre
+          </h1>
           <div className="flex items-center gap-2">
             <Star className="size-5 fill-primary text-primary" />
             <p className="text-lg font-bold">8.1/10</p>
           </div>
           <div>
-            <Badge className="rounded-md bg-[#616161e5] py-2 text-center text-sm">
-              Wedding Hall
-            </Badge>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge className="rounded-md bg-[#616161e5] p-3 text-center text-sm">
+                Wedding Hall
+              </Badge>
+              <Badge className="rounded-md bg-[#616161e5] p-3 text-center text-sm">
+                100 - 1200 Guests
+              </Badge>
+              <Badge className="rounded-md bg-[#616161e5] p-3 text-center text-sm">
+                250 Parking Spaces
+              </Badge>
+            </div>
           </div>
           <Button className="text-md cursor-pointer px-12 py-6">
             Book Venue
           </Button>
         </div>
-        <div></div>
       </div>
     </div>
   )
