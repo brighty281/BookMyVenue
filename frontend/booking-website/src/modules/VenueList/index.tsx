@@ -64,7 +64,7 @@ export default function VenueList({}: Props) {
   return (
     <>
       <Banner />
-      <div className="mx-auto grid grid-cols-12 space-y-6 gap-x-6 py-10 md:max-w-6xl lg:max-w-7xl">
+      <div className="mx-auto grid grid-cols-12 space-y-6 gap-x-10 py-10 md:max-w-6xl lg:max-w-7xl">
         <VenueFilters
           onClearFilter={clearFilter}
           onGetSelected={getSelected}
@@ -92,7 +92,7 @@ export default function VenueList({}: Props) {
             })}
           </div>
 
-          <div className="mt-10 grid grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-4 gap-8">
             {venues?.map((venue) => (
               <VenueCard data={venue} />
             ))}

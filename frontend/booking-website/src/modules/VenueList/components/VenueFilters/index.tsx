@@ -100,10 +100,11 @@ export default function VenueFilters({
           console.log(selected)
 
           return (
-            <Accordion type="multiple" className="my-3">
+            <Accordion type="multiple" className="my-3" defaultValue={["venue-types"]}>
               <AccordionItem
                 value={filterItem?.value}
-                className="rounded-sm bg-white px-4"
+                className="rounded-md bg-white px-4"
+                
               >
                 <AccordionTrigger className="cursor-pointer font-normal text-black/60 no-underline hover:no-underline data-[state=open]:text-primary [&>svg]:hidden [&[data-state=open]>svg]:hidden">
                   <div className="flex items-center gap-1">
