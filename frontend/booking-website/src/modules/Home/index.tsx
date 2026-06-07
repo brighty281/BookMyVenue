@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react"
 import { useMemo } from "react"
 import { Link } from "react-router"
 import { appRoutes } from "@/routes"
+import { venueTypes } from "../VenueList/components/VenueFilters"
 
 type Props = {}
 
@@ -87,6 +88,23 @@ export default function Home({}: Props) {
     <>
       <Banner />
       <div className="mx-auto py-12 md:max-w-6xl lg:max-w-7xl">
+        <div className="flex flex-wrap items-center gap-2 pt-3 pb-8">
+          <Button
+            variant={"outline"}
+            className="cursor-pointer rounded-2xl border font-normal text-primary hover:bg-white hover:text-primary w-15"
+          >
+            All
+          </Button>
+          {venueTypes?.map((item) => (
+            <Button
+              variant={"outline"}
+              className="cursor-pointer rounded-2xl border font-normal text-primary hover:bg-white hover:text-primary"
+              key={item?.value}
+            >
+              {item?.label}
+            </Button>
+          ))}
+        </div>
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Recommended Venues</h2>
           <Link
