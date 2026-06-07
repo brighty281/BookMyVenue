@@ -85,6 +85,7 @@ export default function VenueList({}: Props) {
                     isSelected &&
                       "bg-primary text-white hover:bg-primary hover:text-white"
                   )}
+                  onClick={() => toggleFilter("venueType", item?.value)}
                 >
                   {item?.label}
                 </Button>

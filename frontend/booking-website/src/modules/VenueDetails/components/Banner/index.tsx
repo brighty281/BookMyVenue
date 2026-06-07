@@ -1,11 +1,19 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { appRoutes } from "@/routes"
 import { Star } from "lucide-react"
+import { useNavigate, useParams } from "react-router"
 
 type Props = {}
 
 export default function Banner({}: Props) {
+  const navigate = useNavigate()
+  const { id } = useParams()
+
+  function handlNavigateToBookings() {
+    navigate(appRoutes.venueBooking?.replace(":id", id as string))
+  }
   return (
     <div
       style={{
@@ -42,7 +50,10 @@ export default function Banner({}: Props) {
               </Badge>
             </div>
           </div>
-          <Button className="text-md cursor-pointer px-12 py-6">
+          <Button
+            onClick={handlNavigateToBookings}
+            className="text-md cursor-pointer px-12 py-6"
+          >
             Book Venue
           </Button>
         </div>

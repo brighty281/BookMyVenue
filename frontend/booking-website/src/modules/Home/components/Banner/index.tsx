@@ -7,6 +7,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel"
 import { useEffect, useState } from "react"
+import appLogoSkeleton from "@/assets/app-logo-skeleton.png"
 
 type Props = {}
 const images = [
@@ -39,13 +40,13 @@ export default function Banner({}: Props) {
             align: "center",
             skipSnaps: false,
           }}
-          className="h-72 w-full overflow-hidden"
+          className="h-48 w-full overflow-hidden sm:h-60 md:h-72"
         >
           <CarouselContent className="-ml-4 h-full">
             {images.map((src, index) => (
               <CarouselItem
                 key={index}
-                className="h-72 w-full shrink-0 basis-[80%] rounded-sm transition-all duration-300"
+                className="h-48 w-full shrink-0 basis-[90%] rounded-sm transition-all duration-300 sm:h-60 sm:basis-[85%] md:h-72 md:basis-[80%]"
               >
                 <img
                   src={src}

@@ -97,14 +97,16 @@ export default function VenueFilters({
         <h2 className="text-2xl font-medium">Filters</h2>
         {venuFilters?.map((filterItem) => {
           const selected = onGetSelected(filterItem.paramKey)
-          console.log(selected)
 
           return (
-            <Accordion type="multiple" className="my-3" defaultValue={["venue-types"]}>
+            <Accordion
+              type="multiple"
+              className="my-3"
+              defaultValue={["venue-types"]}
+            >
               <AccordionItem
                 value={filterItem?.value}
                 className="rounded-md bg-white px-4"
-                
               >
                 <AccordionTrigger className="cursor-pointer font-normal text-black/60 no-underline hover:no-underline data-[state=open]:text-primary [&>svg]:hidden [&[data-state=open]>svg]:hidden">
                   <div className="flex items-center gap-1">
@@ -114,7 +116,7 @@ export default function VenueFilters({
                   <Button
                     variant={"ghost"}
                     size={"xs"}
-                    className="cursor-pointer font-normal"
+                    className="cursor-pointer font-normal text-black/60"
                     onClick={(e) => onClearFilter(e, filterItem.paramKey)}
                   >
                     Clear

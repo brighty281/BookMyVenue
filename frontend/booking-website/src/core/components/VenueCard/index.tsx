@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { appRoutes } from "@/routes"
 import { Star } from "lucide-react"
 import { Link } from "react-router"
+import appLogoSkeleton from "@/assets/app-logo-skeleton.png"
 
 type Props = {
   data: any
@@ -13,6 +14,13 @@ export default function VenueCard({ data }: Props) {
       <div className="cursor-pointer">
         <Card className="m-0 p-0">
           <CardContent className="relative m-0 h-89.75 w-full p-0">
+            <div className="grid h-full w-full place-items-center justify-around">
+              <img
+                src={appLogoSkeleton}
+                alt="logo-skeleton"
+                className="w-12 object-cover"
+              />
+            </div>
             {/* <img
             src={data?.image}
             alt={data?.name}
